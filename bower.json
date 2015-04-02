@@ -1,0 +1,31 @@
+{
+  "name": "statejs",
+  "version": "0.1.0",
+  "homepage": "https://github.com/renatopp/statejs",
+  "authors": [
+    {"name":"Renato Pereira", "email":"renato.ppontes@gmail.com", "homepage":"http://guineashots.com"},
+  ],
+  "description": "Behavior tree library",
+  "license": "MIT",
+  "keywords": [
+    "state",
+    "state machine",
+    "finitie state machine",
+    "subsumption",
+    "utility",
+    "ai",
+    "artificial intelligence",
+    "statejs",
+  ],
+  "main": [ "libs/statejs-0.1.0.min.js" ],
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    "build",
+    "docs",
+    "src",
+    "tests",
+    "tools",
+    "examples"
+  ]
+}

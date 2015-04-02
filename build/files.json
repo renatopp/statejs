@@ -1,0 +1,10 @@
+{
+    "core_source": [
+        "../src/statejs.js",
+        "../src/Blackboard.js",
+        "../src/State.js",
+        "../src/FSM.js",
+        "../src/Subsumption.js",
+        "../src/Utility.js"
+    ]
+}

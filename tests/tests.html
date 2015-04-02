@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Mocha Tests</title>
+  <link rel="stylesheet" href="mocha.css" />
+  <style>
+    #mocha .test.pass.fast .duration {
+      background: #81b56a;
+      display: inline;
+    }
+  </style>
+</head>
+<body>
+  <div id="mocha"></div>
+
+  <script type="text/javascript" src="mocha.js"></script>
+  <script type="text/javascript" src="chai.js"></script>
+  <script type="text/javascript" src="sinon.js"></script>
+  
+  <script type="text/javascript" src="../src/statejs.js"></script>
+  <script type="text/javascript" src="../src/Blackboard.js"></script>
+  <script type="text/javascript" src="../src/Subsumption.js"></script>
+  <script type="text/javascript" src="../src/Utility.js"></script>
+  <script type="text/javascript" src="../src/FSM.js"></script>
+
+  <script type="text/javascript">
+    mocha.setup('tdd');
+
+    if (typeof require != "undefined") {
+      var chai = require('chai');
+      var sinon = require('sinon');
+    }
+    var assert = chai.assert;
+
+    assert.isNotUndefined = function(value) {
+      assert.notEqual(typeof value, 'undefined');
+    }
+
+    assert.isNotNullOrUndefined = function(value) {
+      assert.notEqual(typeof value, 'undefined');
+      assert.isNotNull(value, null);
+    }
+    var TickStub = function() {
+      return {
+          'tree'      : {'id': 'tree1'},
+          'blackboard': {
+              'set': sinon.spy(),
+              'get': sinon.stub()
+          },
+          'openNodes' : [],
+          'nodeCount' : 0,
+          
+          '_enterNode' : sinon.spy(),
+          '_openNode'  : sinon.spy(),
+          '_tickNode'  : sinon.spy(),
+          '_closeNode' : sinon.spy(),
+          '_exitNode'  : sinon.spy(),
+      }
+    }
+    var BlackboardStub = function() {
+      return {
+        'set': sinon.spy(),
+        'get': sinon.stub()
+      }
+    }
+    var StateStub = function() {
+      return {
+        'machine': null,
+        'enter': sinon.stub(),
+        'potential': sinon.stub(),
+        'tick': sinon.stub(),
+        'exit': sinon.stub(),
+      }
+    }
+
+    var sleep = function(milliseconds) {
+      var start = new Date().getTime();
+      for (var i = 0; i < 1e7; i++) {
+        if ((new Date().getTime() - start) > milliseconds){
+          break;
+        }
+      }
+    }
+  </script>
+
+  <script type="text/javascript" src="tests/Blackboard.js"></script>
+  <script type="text/javascript" src="tests/FSM.js"></script>
+  <script type="text/javascript" src="tests/Subsumption.js"></script>
+  <script type="text/javascript" src="tests/Utility.js"></script>
+
+  <script>
+    mocha.setup({globals: ['hasCert'], ignoreLeaks: true});
+    mocha.run();
+  </script>
+</body>
+</html>
