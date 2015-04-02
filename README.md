@@ -31,7 +31,7 @@ Download the file `statejs-VERSION.min.js` and include it into your HTML::
 It is very recommended that you take a look into the API where you will find 
 examples and descriptions of features in the library:
 
-- http://docs.guineashots.com/behavior3js
+- http://docs.guineashots.com/statejs
 
 
 ------------------
